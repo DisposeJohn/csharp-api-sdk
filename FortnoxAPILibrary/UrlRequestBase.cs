@@ -241,8 +241,8 @@ namespace FortnoxAPILibrary
 
                 Random rand = new Random();
                 string boundary = "----boundary" + rand.Next().ToString();
-                byte[] header = System.Text.Encoding.ASCII.GetBytes("\r\n--" + boundary + "\r\nContent-Disposition: form-data; name=\"file_path\"; filename=\"" + System.IO.Path.GetFileName(localPath) + "\"\r\nContent-Type: application/octet-stream\r\n\r\n");
-                byte[] trailer = System.Text.Encoding.ASCII.GetBytes("\r\n--" + boundary + "--\r\n");
+                byte[] header = System.Text.Encoding.UTF8.GetBytes("\r\n--" + boundary + "\r\nContent-Disposition: form-data; name=\"file_path\"; filename=\"" + System.IO.Path.GetFileName(localPath) + "\"\r\nContent-Type: application/octet-stream\r\n\r\n");
+                byte[] trailer = System.Text.Encoding.UTF8.GetBytes("\r\n--" + boundary + "--\r\n");
 
                 HttpWebRequest request = this.SetupRequest(this.RequestUriString, "POST");
                 request.ContentType = "multipart/form-data; boundary=" + boundary;

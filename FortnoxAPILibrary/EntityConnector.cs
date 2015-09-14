@@ -292,7 +292,7 @@ namespace FortnoxAPILibrary
             requestUriString = AddParameters(requestUriString);
 
 
-            if (action == "print" || action == "preview" || action == "eprint")
+            if (action == "printreminder" || action == "print" || action == "preview" || action == "eprint")
             {
                 base.Method = "GET";
                 base.ResponseType = RequestResponseType.PDF;
